@@ -7,7 +7,6 @@ const apiRoutes = require('./api');
 // const homeRoutes = require('./home-route.js');
  
 router.use('/api', apiRoutes);
-router.use('/', homeRoutes);
 
 // Catch-all route for any requests not handled by the defined routes
 router.use((req, res) => {
