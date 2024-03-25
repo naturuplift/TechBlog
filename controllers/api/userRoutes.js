@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const authenticateSession = require('../../utils/auth');
 
 // User login route
-router.post('/login', async (req, res) => {
+router.post('/login',  async (req, res) => {
     console.log(req.body);
     
     const { username, password } = req.body;

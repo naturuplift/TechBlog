@@ -26,7 +26,7 @@ const sess = {
 	secret: process.env.ACCESS_TOKEN_SECRET,
 	cookie: {
 		// 10 minute session before user logout
-		maxAge: 600000,
+		maxAge: 3600000,
 		httpOnly: true,
 		secure: false,
 		sameSite: 'strict',
@@ -50,6 +50,12 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware for automatically serving static assets when root URL is accessed
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
+
+// error handling middleware
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).send('Sorry, something broke!');
+});
 
 // sync sequelize models to database
 sequelize.sync({ force: false }).then(() => {
