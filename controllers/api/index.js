@@ -2,14 +2,14 @@
 const router = require('express').Router();
 
 // Import routes for models
-const userRoutes = require('./user-routes');
-const commentRoutes = require('./comment-routes');
-const blogpostRoutes = require('./blogpost-routes');
+const userRoutes = require('./userRoutes');
+// const blogPostRoutes = require('./blogPostRoutes');
+// const commentRoutes = require('./commentRoutes');
 
 // Register routes to be served under own paths
-router.use('/', userRoutes);
-router.use('/', commentRoutes);
-router.use('/', blogpostRoutes);
+router.use('/user', userRoutes);
+// router.use('/post', blogPostRoutes);
+// router.use('/comment', commentRoutes);
 
 // Export the configured router to be used by the main application
 module.exports = router;
