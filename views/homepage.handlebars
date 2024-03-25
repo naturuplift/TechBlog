@@ -1,0 +1,27 @@
+{{!-- Check if the user is logged in --}}
+{{#if loggedIn}}
+  <section class="welcome-banner">
+    <h1>Welcome, {{username}}!</h1>
+    <p><a href="/dashboard">Go to Dashboard</a></p>
+    <button id="logout-button">Logout</button>
+  </section>
+{{else}}
+  <section class="auth-links">
+    <a href="/login">Login</a> | <a href="/signup">Sign Up</a>
+  </section>
+{{/if}}
+
+<section class="blog-posts">
+  <h2>Recent Posts</h2>
+  {{#each posts}}
+    <article class="post">
+      <h3><a href="/post/{{this.id}}">{{this.title}}</a></h3>
+      <p>{{truncate this.content 200}}...</p>
+      <p>Posted by {{this.author}} on {{formatDate this.createdAt}}</p>
+    </article>
+  {{else}}
+    <p>No posts to display</p>
+  {{/each}}
+</section>
+
+<script src="/js/logout.js"></script>

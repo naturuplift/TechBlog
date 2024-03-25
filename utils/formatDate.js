@@ -3,6 +3,10 @@
 module.exports = {
 	format_date: (date) => {
 		// Format date as MM/DD/YYYY
-		return date.toLocaleDateString();
-	},
-};
+		return new Date(date).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+		});
+  	},
+}
